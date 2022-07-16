@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:48:08 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/16 21:43:42 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/14 23:24:37 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ char	*ft_splithold(char *hold);
 int		ft_hasnextline(char *check);
 char	*ft_join(char *s1, char *s2);
 void	*ft_calloc(size_t num, size_t size);
-int		ft_validfd(int fd);
 
 #endif
