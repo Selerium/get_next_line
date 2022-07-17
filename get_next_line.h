@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:48:08 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/16 21:43:42 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/17 19:35:17 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 4096
 # endif
 # include<stdlib.h>
 # include<limits.h>
@@ -27,6 +27,6 @@ char	*ft_splithold(char *hold);
 int		ft_hasnextline(char *check);
 char	*ft_join(char *s1, char *s2);
 void	*ft_calloc(size_t num, size_t size);
-int		ft_validfd(int fd);
+int		ft_validfd(int fd, int *i);
 
 #endif

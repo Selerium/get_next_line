@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:58:42 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/16 21:51:05 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/17 22:29:39 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,9 @@ char	*ft_splithold(char *hold)
 		newstr[i] = hold[i];
 		i++;
 	}
-	newstr[i] = '\n';
-	newstr[i + 1] = '\0';
+	if (hold[i] == '\n')
+		newstr[i++] = '\n';
+	newstr[i] = '\0';
 	i = ft_strlen(newstr);
 	while (hold[i] != '\0')
 	{

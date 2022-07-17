@@ -9,9 +9,9 @@ int	main()
 
 	i = 0;
 	fd = open("txt/urmom.txt", O_RDONLY);
-	fd2 = open("txt/testing.txt", O_CREAT | O_WRONLY, 0666);
+	fd2 = open("txt/test.txt", O_CREAT | O_WRONLY, 0666);
 	word = get_next_line(fd);
-	while (word)
+	while (word != NULL)
 	{
 		printf("test result: |-%s-| %d\n", word, BUFFER_SIZE);
 		write(fd2, word, ft_strlen(word));
