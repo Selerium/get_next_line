@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:58:42 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/17 22:29:39 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/18 18:36:26 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*ft_calloc(size_t num, size_t size)
 	char	*ns;
 	size_t	i;
 
-	if (size != 0 && num > (SIZE_T_MAX / size))
+	if (size != 0 && num > (SSIZE_MAX / size))
 		return (NULL);
 	ns = (char *) malloc (num * size);
 	if (!ns)
@@ -50,11 +50,11 @@ char	*ft_join(char *s1, char *s2)
 	char	*newstr;
 
 	if (!s1)
-		return (s2);
+		s1 = (char *) ft_calloc (1, 1);
 	j = (ft_strlen((char *) s1) + ft_strlen((char *) s2) + 1);
 	if (j == 0)
 		return (NULL);
-	newstr = (char *) malloc (j * sizeof(char));
+	newstr = (char *) ft_calloc (j + 1, sizeof(char));
 	if (!newstr)
 		return (NULL);
 	i = -1;
@@ -67,6 +67,7 @@ char	*ft_join(char *s1, char *s2)
 		j++;
 	}
 	newstr[i + j] = '\0';
+	free (s1);
 	return (newstr);
 }
 
@@ -75,6 +76,8 @@ int	ft_hasnextline(char *check)
 	int	i;
 
 	i = 0;
+	if (!check)
+		return (0);
 	while (check[i] != '\0')
 	{
 		if (check[i] == '\n')
@@ -89,7 +92,7 @@ char	*ft_splithold(char *hold)
 	int		i;
 	char	*newstr;
 
-	newstr = (char *) ft_calloc (ft_strlen(hold), sizeof(char));
+	newstr = (char *) ft_calloc (ft_strlen(hold) + 1, sizeof(char));
 	i = 0;
 	while (hold[i] != '\n' && hold[i] != 0)
 	{

@@ -1,10 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/18 18:39:15 by jadithya          #+#    #+#             */
+/*   Updated: 2022/07/18 18:39:16 by jadithya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"get_next_line.h"
 #include<fcntl.h>
 
-int	main()
+int	main(void)
 {
-	int	fd, fd2;
-	int	i;
+	int		fd;
+	int		fd2;
+	int		i;
 	char	*word;
 
 	i = 0;

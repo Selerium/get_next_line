@@ -6,17 +6,17 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:47:37 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/17 22:32:16 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/18 18:49:52 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"get_next_line.h"
 
-int	ft_validfd(int fd, int *i)
+int	ft_validfd(int fd, size_t *buffer)
 {
-	if (fd > 0 && fd < OPEN_MAX)
+	*buffer = BUFFER_SIZE;
+	if ((fd > 0 && fd < FOPEN_MAX) || BUFFER_SIZE > 0)
 		return (1);
-	*i = -1;
 	return (0);
 }
 
@@ -25,24 +25,23 @@ char	*get_next_line(int fd)
 	static char	*hold;
 	char		*buf;
 	int			i;
+	size_t		buffer;
 
-	i = 0;
-	if (!hold)
-		hold = (char *) ft_calloc (BUFFER_SIZE + 1, sizeof(char));
-	buf = (char *) ft_calloc (BUFFER_SIZE + 1, sizeof(char));
-	//write(1, "\ntest\n", 6);
-	while (ft_validfd(fd, &i) && ft_hasnextline(hold) == 0 && i == 0)
+	i = ft_validfd(fd, &buffer);
+	while (i > 0 && ft_hasnextline(hold) == 0)
 	{
-		if (read(fd, buf, BUFFER_SIZE) > 0)
+		buf = (char *) ft_calloc (buffer + 1, sizeof(char));
+		i = read(fd, buf, buffer) > 0;
+		if (i > 0)
 			hold = ft_join (hold, buf);
-		else
-			i = 1;
+		free (buf);
 	}
-	free (buf);
-	if (i == -1)
+	if (i < 0 || hold[0] == '\0')
+	{
+		if (hold)
+			free (hold);
 		return (NULL);
+	}
 	buf = ft_splithold(hold);
-	if (i == 1)
-		free (hold);
 	return (buf);
 }
