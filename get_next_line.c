@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:47:37 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/19 16:54:20 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/19 17:36:39 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ char	*get_next_line(int fd)
 			hold = ft_join (hold, buf);
 		free (buf);
 	}
+	if (!hold)
+		return (NULL);
 	if (i < 0 || hold[0] == '\0')
 	{
 		if (hold)

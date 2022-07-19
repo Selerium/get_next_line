@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:58:42 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/18 18:36:26 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/19 17:41:34 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*ft_join(char *s1, char *s2)
 	if (!newstr)
 		return (NULL);
 	i = -1;
-	while (++i >= 0 && s1[i])
+	while (s1[++i])
 		newstr[i] = s1[i];
 	j = 0;
 	while (s2[j])
