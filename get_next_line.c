@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:47:37 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/19 04:09:29 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:54:20 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_validfd(int fd, size_t *buffer)
 	*buffer = BUFFER_SIZE;
 	if ((fd > 0 && fd < FOPEN_MAX) || BUFFER_SIZE > 0)
 		return (1);
-	return (0);
+	return (-1);
 }
 
 char	*get_next_line(int fd)
@@ -28,8 +28,6 @@ char	*get_next_line(int fd)
 	size_t		buffer;
 
 	i = ft_validfd(fd, &buffer);
-	if (fd < 0)
-		return (NULL);
 	while (i > 0 && ft_hasnextline(hold) == 0)
 	{
 		buf = (char *) ft_calloc (buffer + 1, sizeof(char));
