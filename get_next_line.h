@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:48:08 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/18 18:22:27 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/19 17:51:36 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 4096
 # endif
 # include<stdlib.h>
 # include<limits.h>
 # include<stdio.h>
 # include<unistd.h>
-//# define malloc(x) NULL
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *s);
